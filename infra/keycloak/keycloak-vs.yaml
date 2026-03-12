@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: keycloak
+  name: keycloak-vs
   namespace: keycloak
   annotations:
     argocd.argoproj.io/sync-wave: "2"
@@ -16,7 +16,7 @@ spec:
             prefix: /
       route:
         - destination:
-            host: keycloak
+            host: keycloak-service
             port:
               number: 8080
 
