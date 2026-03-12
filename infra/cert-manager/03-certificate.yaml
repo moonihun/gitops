@@ -1,0 +1,20 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tls-wildcard-cluster-wooju-org
+  namespace: cert-manager
+spec:
+  secretName: cert-manager-tls-wildcard-cluster-wooju-org
+  issuerRef:
+    name: cluster-issuer-letsencrypt
+    kind: ClusterIssuer
+  commonName: "*.cluster.wooju.org"
+  dnsNames:
+    - "*.cluster.wooju.org"
+    - "cluster.wooju.org"
+  secretTemplate:
+    annotations:
+      reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+      reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: ""
+      reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+      reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: ""

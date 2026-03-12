@@ -1,0 +1,17 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: cluster-issuer-letsencrypt
+spec:
+  acme:
+    email: master@wooju.org
+    server: https://acme-v02.api.letsencrypt.org/directory
+    privateKeySecretRef:
+      name: cluster-issuer-letsencrypt
+    solvers:
+      - dns01:
+          cloudflare:
+            email: master@wooju.org
+            apiTokenSecretRef:
+              name: cloudflare-token-secret
+              key: api-token

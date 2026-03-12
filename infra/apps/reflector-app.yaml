@@ -1,0 +1,26 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: reflector
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://emberstack.github.io/helm-charts
+    chart: reflector
+    targetRevision: 10.0.17
+    helm:
+      values: |
+        replicaCount: 1
+        configuration:
+          # 필요에 따라 옵션 추가 (예: allowed namespaces, kinds 등)
+          logging:
+            minimumLevel: Information
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: reflector
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+
