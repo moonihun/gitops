@@ -19,7 +19,6 @@ spec:
       name: keycloak-db-credentials
       key: password
   http:
-    enabled: true
     httpEnabled: true
   proxy:
     headers: xforwarded
