@@ -22,8 +22,10 @@ spec:
     enabled: true
     httpEnabled: true
   proxy:
-    headers: xforwarded    # Istio Gateway 뒤에서 필수
+    headers: xforwarded
   startOptimized: false
+  ingress:
+    enabled: false    
   hostname:
     hostname: keycloak.cluster.wooju.org
 
