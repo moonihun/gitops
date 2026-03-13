@@ -1,5 +1,5 @@
 nfs:
-  server: 10.0.1.122
+  server: 10.0.1.219
   path: /exports/nfs
 storageClass:
   name: nfs

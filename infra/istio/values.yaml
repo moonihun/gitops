@@ -1,6 +1,11 @@
 name: istio-ingressgateway
 labels:
   istio: ingressgateway
+
+image:
+  repository: docker.io/istio/proxyv2
+  pullPolicy: IfNotPresent
+
 service:
   type: LoadBalancer
   annotations:
