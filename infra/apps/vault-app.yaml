@@ -12,12 +12,12 @@ spec:
     helm:
       valueFiles:
         - ./values/vault-vaules.yaml
-    destination:
-      server: https://kubernetes.default.svc 
-      namespace: vault 
-    syncPolicy:
-      automated: 
-        prune: true 
-        selfHeal: true 
-      syncOptions:
-        - CreeateNamespace=true
+  destination:
+    server: https://kubernetes.default.svc 
+    namespace: vault 
+  syncPolicy:
+    automated: 
+      prune: true 
+      selfHeal: true 
+    syncOptions:
+      - CreeateNamespace=true
