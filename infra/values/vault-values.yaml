@@ -1,6 +1,6 @@
-global:
-  imageRegistry: docker.io
 server:
+  image:
+    repository: docker.io/hashicorp/vault
   dev:
     enabled: false 
   ha:
