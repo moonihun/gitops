@@ -1,5 +1,5 @@
 global:
-  image: docker.io/hashicorp/vault 
+  imageRegistry: docker.io
 server:
   dev:
     enabled: false 
