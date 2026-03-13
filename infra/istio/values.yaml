@@ -1,0 +1,18 @@
+name: istio-ingressgateway
+labels:
+  istio: ingressgateway
+service:
+  type: LoadBalancer
+  annotations:
+    service.beta.kubernetes.io/oci-load-balancer-shape: "flexible"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-min: "10"
+    service.beta.kubernetes.io/oci-load-balancer-shape-flex-max: "10"
+  ports:
+  - port: 80
+    name: http2
+    protocol: TCP
+    targetPort: 8080
+  - port: 443
+    name: https
+    protocol: TCP
+    targetPort: 8443
