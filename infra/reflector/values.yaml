@@ -1,0 +1,4 @@
+replicaCount: 1
+configuration:
+  logging:
+    minimumLevel: Information

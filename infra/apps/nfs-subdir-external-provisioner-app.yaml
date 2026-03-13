@@ -1,22 +1,23 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager
+  name: nfs-subdir-external-provisioner
   namespace: argocd
 spec:
   project: default
   sources:
-    - repoURL: https://charts.jetstack.io
-      chart: cert-manager
-      targetRevision: v1.20.0
-      helm:
-        values: $values/infra/cert-manager/values.yaml
+    - repoURL: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+      chart: nfs-subdir-external-provisioner
+      targetRevision: 4.0.18
+      helm: 
+        valueFiles: 
+          - $values/infra/nfs-subdir-external-provisioner/values.yaml
     - repoURL: https://github.com/moonihun/gitops.git
       targetRevision: main
       ref: values
   destination:
     server: https://kubernetes.default.svc
-    namespace: cert-manager
+    namespace: kube-system
   syncPolicy:
     automated:
       prune: true

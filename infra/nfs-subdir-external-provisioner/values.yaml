@@ -1,0 +1,6 @@
+nfs:
+  server: 10.0.1.122
+  path: /exports/nfs
+storageClass:
+  name: nfs
+  defaultClass: true
