@@ -3,8 +3,6 @@ kind: VirtualService
 metadata:
   name: keycloak-vs
   namespace: keycloak
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
 spec:
   hosts:
     - keycloak.cluster.wooju.org

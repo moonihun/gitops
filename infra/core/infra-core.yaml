@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: cert-manager-config
+  name: infra-core
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/moonihun/gitops.git
     targetRevision: main
-    path: infra/cert-manager/config
+    path: infra/core        
   destination:
     server: https://kubernetes.default.svc
-    namespace: cert-manager
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true

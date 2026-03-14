@@ -3,8 +3,6 @@ kind: Keycloak
 metadata:
   name: keycloak
   namespace: keycloak
-  annotations:
-    argocd.argoproj.io/sync-wave: "1"
 spec:
   instances: 1
   db:

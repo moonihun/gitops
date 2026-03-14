@@ -3,12 +3,14 @@ kind: Application
 metadata:
   name: istio-gateway
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
 spec:
   project: default
   source:
     repoURL: https://github.com/moonihun/gitops.git
     targetRevision: main
-    path: infra/istio
+    path: infra/istio/gateway
   destination:
     server: https://kubernetes.default.svc
     namespace: istio-system
